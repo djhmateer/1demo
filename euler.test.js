@@ -35,8 +35,9 @@ test('negative limit returns 0', () => {
   assert.equal(sumMultiples(-10), 0);
 });
 
-test('float limit behaves like its floor', () => {
-  assert.equal(sumMultiples(10.9), sumMultiples(10));
+test('float limit includes numbers up to floor(limit)', () => {
+  // 10.9 allows i up to 10, so 3+5+6+9+10 = 33
+  assert.equal(sumMultiples(10.9), 33);
 });
 
 test('NaN limit returns 0', () => {
